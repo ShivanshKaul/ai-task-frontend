@@ -1,0 +1,90 @@
+/* Container */
+.tasks-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+}
+
+/* Title */
+.tasks-title {
+  margin-bottom: 15px;
+  color: #f7f7f7;
+}
+
+/* Input row */
+.tasks-input-row {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.tasks-input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: border 0.2s ease-in-out;
+}
+
+.tasks-input:focus {
+  border-color: #007bff;
+}
+
+.tasks-add-btn {
+  margin-left: 10px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  background: #28a745;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.tasks-add-btn:hover {
+  background: #218838;
+}
+
+/* Task List */
+.tasks-list {
+  list-style: none;
+  padding: 0;
+}
+
+/* Task Item */
+.tasks-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.tasks-label {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.tasks-checkbox {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.tasks-text {
+  font-size: 16px;
+  transition: color 0.3s, text-decoration 0.3s;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
