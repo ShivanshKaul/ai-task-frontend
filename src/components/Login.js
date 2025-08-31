@@ -7,22 +7,31 @@ function Login({ setToken }) {
   const [isSignup, setIsSignup] = useState(false);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    const endpoint = isSignup ? "signup" : "login";
-    const res = await fetch(`https://ai-task-backend-69hj.onrender.com/${endpoint}`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username, password }),
-    });
+  e.preventDefault();
+  const endpoint = isSignup ? "signup" : "login";
 
-    if (res.ok) {
-      const data = await res.json();
-      localStorage.setItem("token", data.token);
-      setToken(data.token);
-    } else {
-      alert("Invalid credentials");
-    }
-  };
+  const res = await fetch(`https://ai-task-backend-69hj.onrender.com/${endpoint}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ username, password }),
+  });
+
+  const data = await res.json();
+
+  if (!res.ok) {
+    alert(data.error || "Something went wrong");
+    return;
+  }
+
+  if (isSignup) {
+    alert("Signup successful! Please login now.");
+    setIsSignup(false); // switch back to login
+  } else {
+    localStorage.setItem("token", data.token);
+    setToken(data.token);
+  }
+};
+
 
   return (
     <div className="login-wrapper">
