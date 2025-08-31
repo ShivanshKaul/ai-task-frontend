@@ -9,7 +9,7 @@ function Login({ setToken }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const endpoint = isSignup ? "signup" : "login";
-    const res = await fetch(`https://ai-task-backend-69hj.onrender.com//${endpoint}`, {
+    const res = await fetch(`https://ai-task-backend-69hj.onrender.com/${endpoint}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, password }),
